@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>娇客 - 宠物生活百科与专业护理指南</title>
+    <meta name="description" content="娇客 - 您的宠物生活百科与专业护理指南。提供猫咪、狗狗、异宠饲养知识、健康护理、饮食营养及行为训练建议，帮助您科学养宠，享受人宠共处的美好时光。">
+    <meta name="keywords" content="娇客, 宠物, 养宠指南, 猫咪护理, 狗狗训练, 宠物医疗, 宠物食品">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #6b8e23;
+            --secondary-color: #f4a460;
+            --accent-color: #d2691e;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-body: #f9f7f2;
+            --bg-card: #ffffff;
+            --border-radius: 12px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 顶部导航 */
+        header {
+            background-color: var(--bg-card);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #f0f0f0;
+            border-radius: 20px;
+            padding: 5px 15px;
+        }
+
+        .search-box input {
+            border: none;
+            background: transparent;
+            outline: none;
+            font-size: 14px;
+            width: 150px;
+        }
+
+        .search-box button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, #fdfbf7 0%, #f4e8d8 100%);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        .cta-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 10px 24px;
+            border-radius: 25px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: var(--text-main);
+            border: 1px solid #ddd;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(107, 142, 35, 0.3);
+        }
+
+        /* 分类入口 */
+        .categories {
+            padding: 40px 0;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .category-card {
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .cat-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .category-card h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .category-card p {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        /* 核心内容区 */
+        .main-section {
+            padding: 40px 0;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-main);
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5px;
+            height: 20px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        .view-all {
+            font-size: 14px;
+            color: var(--primary-color);
+        }
+
+        /* 文章列表 */
+        .article-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .article-card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            display: flex;
+            box-shadow: var(--shadow);
+            transition: box-shadow 0.3s;
+        }
+
+        .article-card:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .article-img {
+            width: 240px;
+            height: 180px;
+            flex-shrink: 0;
+        }
+
+        .article-content {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .article-tag {
+            display: inline-block;
+            background-color: #f0f7e9;
+            color: var(--primary-color);
+            font-size: 12px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            width: fit-content;
+        }
+
+        .article-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .article-desc {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .article-meta {
+            font-size: 12px;
+            color: #999;
+            margin-top: auto;
+        }
+
+        /* 侧边栏 */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .widget {
+            background: var(--bg-card);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .hot-list li {
+            margin-bottom: 12px;
+            border-bottom: 1px dashed #eee;
+            padding-bottom: 12px;
+        }
+
+        .hot-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .hot-list a {
+            font-size: 15px;
+            color: var(--text-main);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .hot-list a:hover {
+            color: var(--primary-color);
+        }
+
+        .hot-num {
+            background: #f4a460;
+            color: white;
+            font-size: 11px;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        /* 知识库/FAQ */
+        .faq-section {
+            padding: 40px 0;
+            background-color: white;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .faq-item {
+            background: var(--bg-body);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .faq-item h4 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .faq-item p {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 50px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-col p {
+            font-size: 14px;
+            color: #bdc3c7;
+            margin-bottom: 10px;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            font-size: 14px;
+            color: #bdc3c7;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #34495e;
+            font-size: 13px;
+            color: #7f8c8d;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .search-box {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .main-section {
+                grid-template-columns: 1fr;
+            }
+
+            .article-card {
+                flex-direction: column;
+            }
+
+            .article-img {
+                width: 100%;
+                height: 200px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部导航 -->
+    <header>
+        <div class="container nav-inner">
+            <a href="#" class="logo">
+                🐾 娇客 <span>Guide</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#">猫咪养护</a>
+                <a href="#">狗狗训练</a>
+                <a href="#">宠物医疗</a>
+                <a href="#">异宠百科</a>
+                <a href="#">社区互动</a>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索养宠知识...">
+                <button>🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 首屏 Hero -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>科学养宠，让爱无负担</h1>
+            <p>无论您是初次养宠的新手，还是经验丰富的老手，娇客都为您提供最专业、最实用的宠物护理指南与资讯。</p>
+            <div class="cta-group">
+                <button class="btn btn-primary">开始养宠指南</button>
+                <button class="btn btn-secondary">咨询在线医生</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 分类入口 -->
+    <section class="container categories">
+        <div class="category-grid">
+            <div class="category-card">
+                <span class="cat-icon">🐱</span>
+                <h3>猫咪养护</h3>
+                <p>驱虫、疫苗、绝育与日常护理</p>
+            </div>
+            <div class="category-card">
+                <span class="cat-icon">🐶</span>
+                <h3>狗狗训练</h3>
+                <p>定点排便、吠叫控制与服从性训练</p>
+            </div>
+            <div class="category-card">
+                <span class="cat-icon">💊</span>
+                <h3>宠物医疗</h3>
+                <p>常见疾病预防、急救常识与用药指南</p>
+            </div>
+            <div class="category-card">
+                <span class="cat-icon">🥗</span>
+                <h3>科学饮食</h3>
+                <p>营养搭配、自制食谱与食品评测</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容区 -->
+    <section class="container main-section">
+        <!-- 左侧文章列表 -->
+        <div class="content-area">
+            <div class="section-header">
+                <h2 class="section-title">热门推荐</h2>
+                <a href="#" class="view-all">查看更多 &rarr;</a>
+            </div>
+
+            <div class="article-list">
+                <article class="article-card">
+                    <img src="https://picsum.photos/seed/cat1/400/300" alt="猫咪日常护理" class="article-img">
+                    <div class="article-content">
+                        <span class="article-tag">猫咪养护</span>
+                        <h3 class="article-title"><a href="#">新手必读：猫咪疫苗接种时间表与注意事项</a></h3>
+                        <p class="article-desc">疫苗接种是保障猫咪健康的第一道防线。本文详细解析猫三联、狂犬疫苗的接种时间、禁忌症以及接种后的护理要点，帮助您科学制定免疫计划。</p>
+                        <div class="article-meta">发布于 2023-10-24 | 作者：娇客编辑部</div>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <img src="https://picsum.photos/seed/dog1/400/300" alt="狗狗训练" class="article-img">
+                    <div class="article-content">
+                        <span class="article-tag">狗狗训练</span>
+                        <h3 class="article-title"><a href="#">纠正狗狗乱吠叫的5个实用方法</a></h3>
+                        <p class="article-desc">狗狗乱叫不仅扰民，还可能引起邻里纠纷。通过正向训练、环境管理和满足心理需求，我们可以有效减少狗狗的吠叫行为，建立和谐的社区关系。</p>
+                        <div class="article-meta">发布于 2023-10-22 | 作者：宠物行为专家</div>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <img src="https://picsum.photos/seed/food1/400/300" alt="宠物饮食" class="article-img">
+                    <div class="article-content">
+                        <span class="article-tag">科学饮食</span>
+                        <h3 class="article-title"><a href="#">如何挑选优质的猫粮？看懂配料表是关键</a></h3>
+                        <p class="article-desc">面对市面上琳琅满目的猫粮，如何避免踩坑？我们将教您看懂营养成分表，识别诱食剂和谷物填充物，为爱宠挑选出真正健康的食物。</p>
+                        <div class="article-meta">发布于 2023-10-20 | 作者：营养师小王</div>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <!-- 右侧侧边栏 -->
+        <aside>
+            <!-- 热门排行 -->
+            <div class="widget">
+                <h3 class="section-title" style="margin-bottom: 15px; font-size: 18px;">热门阅读</h3>
+                <ul class="hot-list">
+                    <li><a href="#"><span>猫咪突然不吃东西怎么办？</span> <span class="hot-num">1</span></a></li>
+                    <li><a href="#"><span>狗狗补钙的最佳时间与食物</span> <span class="hot-num">2</span></a></li>
+                    <li><a href="#"><span>家里养猫，这5种植物绝对不能放</span> <span class="hot-num">3</span></a></li>
+                    <li><a href="#"><span>幼犬期疫苗与驱虫全攻略</span> <span class="hot-num">4</span></a></li>
+                    <li><a href="#"><span>猫咪发情期的行为表现与应对</span> <span class="hot-num">5</span></a></li>
+                </ul>
+            </div>
+
+            <!-- 互动活动 -->
+            <div class="widget" style="background: linear-gradient(to bottom right, #fdfbf7, #fff); text-align: center;">
+                <h3 style="margin-bottom: 10px; font-size: 18px;">加入娇客社区</h3>
+                <p style="font-size: 13px; color: #666; margin-bottom: 15px;">分享您的养宠日常，获取专家在线答疑</p>
+                <button class="btn btn-primary" style="width: 100%; padding: 10px;">立即注册</button>
+            </div>
+        </aside>
+    </section>
+
+    <!-- 常见问题 -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">养宠常见问题</h2>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>多久给宠物洗一次澡合适？</h4>
+                    <p>一般来说，猫咪建议1-3个月洗一次，狗狗视品种和活动量而定，通常1-2周一次。过度洗澡会破坏皮肤屏障。</p>
+                </div>
+                <div class="faq-item">
+                    <h4>宠物可以吃人类的食物吗？</h4>
+                    <p>不建议。洋葱、巧克力、葡萄等对人类无害但对宠物有毒。日常饮食应选择专用的宠物粮。</p>
+                </div>
+                <div class="faq-item">
+                    <h4>宠物绝育后需要注意什么？</h4>
+                    <p>术后需观察伤口愈合情况，保持干燥清洁。绝育后体重容易增加，需适当控制饮食并增加运动量。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 20px; color: white;">
+                        🐾 娇客 <span>Guide</span>
+                    </div>
+                    <p>娇客致力于为每一位宠物主人提供最权威、最温暖的养宠指南。让科学成为爱的基础，陪伴您的爱宠健康快乐成长。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">专家团队</a></li>
+                        <li><a href="#">免责声明</a></li>
+                        <li><a href="#">联系方式</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>热门分类</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">猫咪百科</a></li>
+                        <li><a href="#">狗狗训练</a></li>
+                        <li><a href="#">宠物医疗</a></li>
+                        <li><a href="#">异宠饲养</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">小红书账号</a></li>
+                        <li><a href="#">新浪微博</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 娇客宠物生活指南 版权所有 | 本站内容仅供学习与参考，不构成医疗建议
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
