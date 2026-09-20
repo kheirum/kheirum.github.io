@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="抚松征婚网是吉林省白山市抚松县本地真实的征婚交友平台，为抚松及周边地区的单身男女提供实名认证的相亲服务，包括个人资料展示、红娘牵线、同城交友等服务。">
+    <meta name="keywords" content="抚松征婚,抚松相亲,白山征婚,抚松交友,抚松婚恋">
+    <title>抚松征婚-本地真实相亲交友平台与实名认证服务</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #e83929; /* 爱心红 */
+            --primary-hover: #c92a2a;
+            --secondary-color: #f8f9fa;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-color: #e0e0e0;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --radius: 8px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary-color);
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border-color);
+            background: transparent;
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #fff0f0 0%, #fff 100%);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+
+        .search-box {
+            background: #fff;
+            padding: 10px;
+            border-radius: 50px;
+            box-shadow: var(--shadow);
+            display: inline-flex;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            outline: none;
+            border-radius: 50px;
+        }
+
+        .search-box button {
+            background: var(--primary-color);
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: #f8f9fa;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+        }
+
+        .stats-grid {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .stat-item h3 {
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+
+        .stat-item p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* Main Layout */
+        .main-container {
+            max-width: var(--container-width);
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        /* Profile List */
+        .section-title {
+            font-size: 22px;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+            display: inline-block;
+        }
+
+        .profile-card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 20px;
+            transition: box-shadow 0.3s;
+        }
+
+        .profile-card:hover {
+            box-shadow: var(--shadow);
+        }
+
+        .avatar {
+            width: 100px;
+            height: 120px;
+            background-color: #eee;
+            border-radius: var(--radius);
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .profile-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .profile-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--text-main);
+        }
+
+        .profile-age {
+            background: #ffebeb;
+            color: var(--primary-color);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .profile-location {
+            color: var(--text-secondary);
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+
+        .profile-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            background: #f0f0f0;
+            color: #555;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .profile-bio {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .profile-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 15px;
+        }
+
+        .match-score {
+            color: #ff9800;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .widget-title {
+            font-size: 18px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .reason-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f5f5f5;
+            font-size: 14px;
+        }
+
+        .reason-list li:last-child {
+            border-bottom: none;
+        }
+
+        .reason-list strong {
+            display: block;
+            margin-bottom: 4px;
+            color: var(--text-main);
+        }
+
+        .reason-list span {
+            color: var(--text-secondary);
+            font-size: 12px;
+        }
+
+        /* Safety Tips */
+        .safety-tips {
+            background: #fff3cd;
+            border: 1px solid #ffeeba;
+            color: #856404;
+            padding: 15px;
+            border-radius: var(--radius);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .safety-tips h4 {
+            margin-bottom: 8px;
+            color: #856404;
+        }
+
+        /* Footer */
+        footer {
+            background: #f8f9fa;
+            border-top: 1px solid var(--border-color);
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            color: #999;
+            font-size: 13px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            .header-inner {
+                justify-content: center;
+            }
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .profile-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .profile-header {
+                flex-direction: column;
+                gap: 5px;
+            }
+            .profile-footer {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                <span>抚松相亲</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="active">首页</a>
+                <a href="#">个人中心</a>
+                <a href="#">红娘服务</a>
+                <a href="#">婚恋论坛</a>
+                <a href="#">关于我们</a>
+            </nav>
+            <div class="auth-buttons">
+                <a href="#" class="btn btn-outline">登录</a>
+                <a href="#" class="btn btn-primary">免费注册</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>寻找抚松真爱，开启幸福生活</h1>
+            <p>专注抚松本地实名认证交友平台，严选优质单身男女，让缘分不再错过。</p>
+            <div class="search-box">
+                <input type="text" placeholder="搜索心仪的TA (如：教师、公务员、自由职业)">
+                <button>搜索</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-bar">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>10,000+</h3>
+                <p>注册会员</p>
+            </div>
+            <div class="stat-item">
+                <h3>500+</h3>
+                <p>本月牵手成功</p>
+            </div>
+            <div class="stat-item">
+                <h3>95%</h3>
+                <p>实名认证率</p>
+            </div>
+            <div class="stat-item">
+                <h3>抚松</h3>
+                <p>本地化服务</p>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-container">
+        <!-- 左侧内容区 -->
+        <section class="profiles-list">
+            <h2 class="section-title">最新会员推荐</h2>
+            
+            <article class="profile-card">
+                <img src="https://picsum.photos/seed/fusong1/100/120" alt="用户头像" class="avatar">
+                <div class="profile-info">
+                    <div class="profile-header">
+                        <span class="profile-name">李女士</span>
+                        <span class="profile-age">26岁</span>
+                    </div>
+                    <div class="profile-location">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        吉林省白山市抚松县
+                    </div>
+                    <div class="profile-tags">
+                        <span class="tag">身高163cm</span>
+                        <span class="tag">本科学历</span>
+                        <span class="tag">教师</span>
+                        <span class="tag">真诚交友</span>
+                    </div>
+                    <p class="profile-bio">在抚松县的一所小学任教，性格开朗，喜欢旅游和烘焙。希望找一个有责任心、热爱生活的男士，一起经营温馨的小家。</p>
+                    <div class="profile-footer">
+                        <span class="match-score">匹配度 98%</span>
+                        <a href="#" class="btn btn-outline" style="padding: 5px 15px; font-size: 12px;">查看资料</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="profile-card">
+                <img src="https://picsum.photos/seed/fusong2/100/120" alt="用户头像" class="avatar">
+                <div class="profile-info">
+                    <div class="profile-header">
+                        <span class="profile-name">张先生</span>
+                        <span class="profile-age">30岁</span>
+                    </div>
+                    <div class="profile-location">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        吉林省白山市抚松县
+                    </div>
+                    <div class="profile-tags">
+                        <span class="tag">身高178cm</span>
+                        <span class="tag">公务员</span>
+                        <span class="tag">有房</span>
+                        <span class="tag">稳重踏实</span>
+                    </div>
+                    <p class="profile-bio">目前在抚松县机关单位工作，生活规律，无不良嗜好。平时喜欢钓鱼和运动，希望遇到一位温柔体贴的伴侣，共度余生。</p>
+                    <div class="profile-footer">
+                        <span class="match-score">匹配度 92%</span>
+                        <a href="#" class="btn btn-outline" style="padding: 5px 15px; font-size: 12px;">查看资料</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="profile-card">
+                <img src="https://picsum.photos/seed/fusong3/100/120" alt="用户头像" class="avatar">
+                <div class="profile-info">
+                    <div class="profile-header">
+                        <span class="profile-name">王女士</span>
+                        <span class="profile-age">28岁</span>
+                    </div>
+                    <div class="profile-location">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        吉林省白山市抚松县
+                    </div>
+                    <div class="profile-tags">
+                        <span class="tag">身高160cm</span>
+                        <span class="tag">护士</span>
+                        <span class="tag">善良</span>
+                        <span class="tag">顾家</span>
+                    </div>
+                    <p class="profile-bio">从事医疗行业，工作虽然忙碌但很充实。平时喜欢听音乐和看电影。期待遇到一位能理解我工作的伴侣，相互扶持。</p>
+                    <div class="profile-footer">
+                        <span class="match-score">89%</span>
+                        <a href="#" class="btn btn-outline" style="padding: 5px 15px; font-size: 12px;">查看资料</a>
+                    </div>
+                </div>
+            </article>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="#" class="btn btn-outline">加载更多会员</a>
+            </div>
+        </section>
+
+        <!-- 右侧侧边栏 -->
+        <aside>
+            <div class="sidebar-widget">
+                <h3 class="widget-title">为什么选择我们</h3>
+                <ul class="reason-list">
+                    <li>
+                        <strong>本地实名认证</strong>
+                        <span>严格核验身份信息，确保交友安全</span>
+                    </li>
+                    <li>
+                        <strong>精准区域匹配</strong>
+                        <span>专注抚松及周边区域，避免异地恋困扰</span>
+                    </li>
+                    <li>
+                        <strong>专业红娘服务</strong>
+                        <span>人工筛选优质资源，提供恋爱指导</span>
+                    </li>
+                    <li>
+                        <strong>隐私保护机制</strong>
+                        <span>保护用户个人隐私，放心交友</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">交友小贴士</h3>
+                <div class="safety-tips">
+                    <h4>⚠️ 交友安全提醒</h4>
+                    <p>1. 在接触初期请勿透露过多个人隐私（如家庭住址、银行卡号）。<br>
+                    2. 如果对方要求转账或借款，请务必提高警惕。<br>
+                    3. 遇到可疑人员请立即向平台举报。</p>
+                </div>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">热门分类</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                    <a href="#" class="tag" style="cursor: pointer;">公务员</a>
+                    <a href="#" class="tag" style="cursor: pointer;">教师</a>
+                    <a href="#" class="tag" style="cursor: pointer;">医生</a>
+                    <a href="#" class="tag" style="cursor: pointer;">企业高管</a>
+                    <a href="#" class="tag" style="cursor: pointer;">自由职业</a>
+                    <a href="#" class="tag" style="cursor: pointer;">退伍军人</a>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 15px;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    <span>抚松相亲</span>
+                </div>
+                <p style="color: #666; font-size: 14px; line-height: 1.6;">
+                    专注为抚松县及周边地区单身人士提供安全、高效的婚恋交友服务。我们致力于帮助每一位会员找到属于自己的幸福。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">服务条款</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">帮助中心</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系方式</h4>
+                <ul>
+                    <li><a href="#">在线咨询</a></li>
+                    <li><a href="#">客服热线：0439-xxxxxxx</a></li>
+                    <li><a href="#">工作时间：9:00 - 21:00</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关注我们</h4>
+                <div style="display: flex; gap: 10px;">
+                    <div style="width: 40px; height: 40px; background: #eee; border-radius: 4px;"></div>
+                    <div style="width: 40px; height: 40px; background: #eee; border-radius: 4px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright © 2023 抚松征婚网 版权所有 | 辽ICP备xxxxxxxx号</p>
+        </div>
+    </footer>
+
+</body>
+          </html>
