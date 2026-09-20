@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="一耽网 - 专注中医文化传播与公益学习平台。提供中医基础理论、经典文献、名医医案及养生知识，致力于推动中医知识的普及与传承。">
+    <meta name="keywords" content="一耽, 中医, 中医文化, 中医学习, 中医公益, 经典文献, 养生知识, 中医论坛">
+    <title>一耽-中医文化传播与公益学习平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #5d7a3d; /* 中医绿 */
+            --secondary-color: #8fbc8f;
+            --accent-color: #d4af37; /* 金色点缀 */
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-body: #f9f7f2;
+            --bg-card: #ffffff;
+            --border-radius: 8px;
+            --container-width: 1200px;
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-body);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: var(--bg-card);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+            font-size: 16px;
+            font-weight: normal;
+            opacity: 0.8;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        nav a.active, nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .cta-button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .cta-button:hover {
+            background-color: #4a632e;
+            color: white;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, #eefcf0 0%, #dcedc8 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(93, 122, 61, 0.1);
+            color: var(--primary-color);
+            padding: 6px 16px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        /* 核心栏目 */
+        .features {
+            padding: 60px 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* 内容区域 */
+        .content-section {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 15px;
+        }
+
+        .section-header h2 {
+            font-size: 28px;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -17px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        /* 文章列表 */
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .article-card {
+            border: 1px solid #eee;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+        }
+
+        .article-card:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+
+        .article-img {
+            width: 100%;
+            height: 180px;
+            background-color: #eee;
+            object-fit: cover;
+        }
+
+        .article-content {
+            padding: 20px;
+        }
+
+        .article-meta {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 10px;
+        }
+
+        .article-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .article-excerpt {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .read-more {
+            font-size: 14px;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        /* 经典推荐 */
+        .classic-section {
+            padding: 60px 0;
+            background-color: var(--bg-body);
+        }
+
+        .classic-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .classic-item {
+            display: flex;
+            background: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            align-items: center;
+            gap: 20px;
+        }
+
+        .classic-num {
+            font-size: 40px;
+            font-weight: bold;
+            color: rgba(93, 122, 61, 0.2);
+            line-height: 1;
+        }
+
+        .classic-info h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .classic-info p {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* 公益行动 */
+        .volunteer-section {
+            padding: 80px 0;
+            background: linear-gradient(rgba(93, 122, 61, 0.9), rgba(93, 122, 61, 0.9)), url('https://picsum.photos/seed/medicine/1200/600') center/cover;
+            color: white;
+            text-align: center;
+        }
+
+        .volunteer-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .volunteer-section p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .btn-white {
+            background-color: white;
+            color: var(--primary-color);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .btn-white:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #2c3e50;
+            color: #bdc3c7;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            font-size: 13px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+            
+            nav ul {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">一耽 <span>YiDan</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">中医文化</a></li>
+                    <li><a href="#">经典研读</a></li>
+                    <li><a href="#">医案医话</a></li>
+                    <li><a href="#">公益论坛</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="cta-button">加入我们</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero 区域 -->
+        <section class="hero">
+            <div class="container">
+                <h1>传承中医智慧，守护生命健康</h1>
+                <p>一耽网是一个致力于中医文化普及与公益学习的平台。我们汇聚经典文献、名医经验与养生知识，为大众提供科学、系统的中医学习资源。</p>
+                <div class="hero-tags">
+                    <span class="tag">经典诵读</span>
+                    <span class="tag">医案分享</span>
+                    <span class="tag">养生科普</span>
+                    <span class="tag">青年中医</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 核心栏目 -->
+        <section class="container features">
+            <article class="feature-card">
+                <div class="feature-icon">📖</div>
+                <h3>经典研读</h3>
+                <p>系统梳理《黄帝内经》、《伤寒论》等中医四大经典，提供白话解读与原文对照，帮助初学者入门。</p>
+            </article>
+            <article class="feature-card">
+                <div class="feature-icon">🌿</div>
+                <h3>养生指南</h3>
+                <p>结合二十四节气与体质辨识，提供饮食、起居、运动等全方位的养生调理方案。</p>
+            </article>
+            <article class="feature-card">
+                <div class="feature-icon">🤝</div>
+                <h3>公益互助</h3>
+                <p>搭建青年中医与社区居民的桥梁，提供义诊咨询与健康讲座，践行中医惠民理念。</p>
+            </article>
+        </section>
+
+        <!-- 最新资讯 -->
+        <section class="content-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>最新资讯与动态</h2>
+                    <a href="#" style="color: var(--primary-color); font-size: 14px;">查看更多 &rarr;</a>
+                </div>
+                <div class="article-grid">
+                    <article class="article-card">
+                        <img src="https://picsum.photos/seed/doctor/400/250" alt="中医义诊" class="article-img">
+                        <div class="article-content">
+                            <div class="article-meta">2023-10-15 | 社区服务</div>
+                            <h3 class="article-title">秋季中医养生：顺时而养，预防感冒</h3>
+                            <p class="article-excerpt">中医认为“秋气通于肺”，秋季养生应以润肺防燥为主，建议多食银耳、百合，少食辛辣...</p>
+                            <a href="#" class="read-more">阅读全文</a>
+                        </div>
+                    </article>
+                    <article class="article-card">
+                        <img src="https://picsum.photos/seed/herb/400/250" alt="中药辨识" class="article-img">
+                        <div class="article-content">
+                            <div class="article-meta">2023-10-12 | 知识科普</div>
+                            <h3 class="article-title">认识身边的常见中药材：甘草与黄芪</h3>
+                            <p class="article-excerpt">甘草具有补脾益气、清热解毒的功效；黄芪则是补气固表的要药，常用于治疗气虚乏力...</p>
+                            <a href="#" class="read-more">阅读全文</a>
+                        </div>
+                    </article>
+                    <article class="article-card">
+                        <img src="https://picsum.photos/seed/study/400/250" alt="学习心得" class="article-img">
+                        <div class="article-content">
+                            <div class="article-meta">2023-10-08 | 学习心得</div>
+                            <h3 class="article-title">初学者如何开始研读《伤寒论》</h3>
+                            <p class="article-excerpt">研读经典切忌死记硬背，建议先从白话解入手，理解条文背后的病机与方义，再逐步回归原文...</p>
+                            <a href="#" class="read-more">阅读全文</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 经典推荐 -->
+        <section class="classic-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>必读经典推荐</h2>
+                </div>
+                <div class="classic-list">
+                    <div class="classic-item">
+                        <span class="classic-num">01</span>
+                        <div class="classic-info">
+                            <h4>《黄帝内经·素问》</h4>
+                            <p>中医理论的奠基之作，阐述了阴阳五行、脏腑经络、病因病机等核心理论，是学习中医的必经之路。</p>
+                        </div>
+                    </div>
+                    <div class="classic-item">
+                        <span class="classic-num">02</span>
+                        <div class="classic-info">
+                            <h4>《伤寒杂病论》</h4>
+                            <p>中医临床学的奠基之作，创立了六经辨证体系，确立了理、法、方、药严谨的临证思维模式。</p>
+                        </div>
+                    </div>
+                    <div class="classic-item">
+                        <span class="classic-num">03</span>
+                        <div class="classic-info">
+                            <h4>《神农本草经》</h4>
+                            <p>现存最早的药物学专著，收录了365种药物，分为上、中、下三品，确立了中药学的理论体系。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 公益行动 -->
+        <section class="volunteer-section">
+            <div class="container">
+                <h2>参与公益，传承仁心</h2>
+                <p>我们正在寻找热爱中医、愿意奉献时间的志愿者。无论您是经验丰富的中医师，还是立志学医的青年，都可以加入我们的义诊、巡讲或资料整理团队。</p>
+                <a href="#" class="btn-white">立即报名</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于一耽</h4>
+                    <p style="font-size: 14px; line-height: 1.8;">
+                        一耽网成立于2002年，是一个致力于中医文化普及、青年中医培养及社区健康服务的公益项目。我们坚持“中医惠民”的宗旨，推动中医知识走进千家万户。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>主要栏目</h4>
+                    <ul>
+                        <li><a href="#">经典导读</a></li>
+                        <li><a href="#">医案医话</a></li>
+                        <li><a href="#">养生保健</a></li>
+                        <li><a href="#">公益论坛</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>资源下载</h4>
+                    <ul>
+                        <li><a href="#">PPT课件</a></li>
+                        <li><a href="#">电子书籍</a></li>
+                        <li><a href="#">音频资料</a></li>
+                        <li><a href="#">学习计划</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li>邮箱：contact@yidan.org</li>
+                        <li>电话：010-12345678</li>
+                        <li>地址：北京市海淀区某街道</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 一耽网 版权所有. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+                                                    </html>
