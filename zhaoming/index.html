@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="赵铭动图 - 精选赵铭经典影视角色表情包、搞笑片段GIF及影视精彩瞬间合集，包含《疯狂的石头》《人在囧途》等高热动图资源。">
+    <meta name="keywords" content="赵铭, 赵铭动图, 赵铭表情包, 疯狂的石头, 人在囧途, 影视动图, 搞笑gif">
+    <title>赵铭动图-经典影视角色表情包与搞笑GIF合集</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #e50914;
+            --bg-color: #f5f5f7;
+            --card-bg: #ffffff;
+            --text-main: #1d1d1f;
+            --text-sub: #86868b;
+            --border-radius: 12px;
+            --spacing: 24px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Header & Nav */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding: 16px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2e 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #ccc;
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .search-bar {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 14px 20px;
+            border-radius: 50px;
+            border: none;
+            font-size: 1rem;
+            outline: none;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .search-bar button {
+            position: absolute;
+            right: 6px;
+            top: 6px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 24px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* Categories */
+        .categories {
+            padding: 40px 0;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            padding-left: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .cat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .cat-item {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .cat-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-color: rgba(229, 9, 20, 0.1);
+        }
+
+        .cat-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .cat-name {
+            font-weight: 600;
+        }
+
+        /* GIF Gallery */
+        .gallery {
+            padding-bottom: 60px;
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            padding: 6px 16px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid #eee;
+        }
+
+        .tab.active, .tab:hover {
+            background: var(--text-main);
+            color: white;
+            border-color: var(--text-main);
+        }
+
+        .gif-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .gif-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .gif-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
+
+        .gif-wrapper {
+            position: relative;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            background: #000;
+            overflow: hidden;
+        }
+
+        .gif-wrapper img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s;
+        }
+
+        .gif-info {
+            padding: 16px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .gif-title {
+            font-weight: 600;
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .gif-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-sub);
+        }
+
+        .tag {
+            background: #f0f0f0;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #1d1d1f;
+            color: #86868b;
+            padding: 40px 0;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-bottom: 16px;
+        }
+
+        .footer-links a {
+            color: #86868b;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                gap: 16px;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .gif-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <span>🎬</span> 赵铭动图
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#hot">热门</a></li>
+                    <li><a href="#classic">经典</a></li>
+                    <li><a href="#meme">表情包</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>赵铭影视名场面动图</h1>
+            <p>收录《疯狂的石头》《人在囧途》等经典影视作品中的赵铭角色高燃、搞笑及经典表情GIF动图。</p>
+            <div class="search-bar">
+                <input type="text" placeholder="搜索关键词，如：黑皮、假警察...">
+                <button>搜索</button>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- Categories -->
+        <section class="categories">
+            <h2 class="section-title">热门分类</h2>
+            <div class="cat-grid">
+                <div class="cat-item" onclick="filterGallery('all')">
+                    <span class="cat-icon">🔥</span>
+                    <div class="cat-name">全网热榜</div>
+                </div>
+                <div class="cat-item" onclick="filterGallery('meme')">
+                    <span class="cat-icon">😂</span>
+                    <div class="cat-name">搞笑表情</div>
+                </div>
+                <div class="cat-item" onclick="filterGallery('classic')">
+                    <span class="cat-icon">🎬</span>
+                    <div class="cat-name">经典片段</div>
+                </div>
+                <div class="cat-item" onclick="filterGallery('character')">
+                    <span class="cat-icon">🕵️</span>
+                    <div class="cat-name">角色特写</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery -->
+        <section class="gallery" id="gifGallery">
+            <div class="filter-tabs">
+                <span class="tab active" onclick="filterGallery('all')">全部</span>
+                <span class="tab" onclick="filterGallery('meme')">搞笑瞬间</span>
+                <span class="tab" onclick="filterGallery('classic')">经典台词</span>
+                <span class="tab" onclick="filterGallery('character')">黑皮形象</span>
+            </div>
+
+            <div class="gif-grid">
+                <!-- Card 1 -->
+                <article class="gif-card" data-category="meme">
+                    <div class="gif-wrapper">
+                        <img src="https://picsum.photos/seed/zhaoming1/400/225" alt="赵铭搞笑动图示意" loading="lazy">
+                    </div>
+                    <div class="gif-info">
+                        <div>
+                            <h3 class="gif-title">假警察拉人场景</h3>
+                            <p class="gif-meta">来源：疯狂的石头</p>
+                        </div>
+                        <div class="gif-meta">
+                            <span class="tag">搞笑</span>
+                            <span>12.5k</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="gif-card" data-category="classic">
+                    <div class="gif-wrapper">
+                        <img src="https://picsum.photos/seed/zhaoming2/400/225" alt="赵铭经典台词动图示意" loading="lazy">
+                    </div>
+                    <div class="gif-info">
+                        <div>
+                            <h3 class="gif-title">假警察被识破瞬间</h3>
+                            <p class="gif-meta">来源：疯狂的石头</p>
+                        </div>
+                        <div class="gif-meta">
+                            <span class="tag">经典</span>
+                            <span>8.2k</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="gif-card" data-category="character">
+                    <div class="gif-wrapper">
+                        <img src="https://picsum.photos/seed/zhaoming3/400/225" alt="赵铭黑皮形象特写" loading="lazy">
+                    </div>
+                    <div class="gif-info">
+                        <div>
+                            <h3 class="gif-title">黑皮假警察特写</h3>
+                            <p class="gif-meta">角色：黑皮</p>
+                        </div>
+                        <div class="gif-meta">
+                            <span class="tag">角色</span>
+                            <span>15k</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="gif-card" data-category="meme">
+                    <div class="gif-wrapper">
+                        <img src="https://picsum.photos/seed/zhaoming4/400/225" alt="赵铭无奈表情动图" loading="lazy">
+                    </div>
+                    <div class="gif-info">
+                        <div>
+                            <h3 class="gif-title">无奈摊手表情包</h3>
+                            <p class="gif-meta">来源：人在囧途</p>
+                        </div>
+                        <div class="gif-meta">
+                            <span class="tag">表情包</span>
+                            <span>20k</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 5 -->
+                <article class="gif-card" data-category="classic">
+                    <div class="gif-wrapper">
+                        <img src="https://picsum.photos/seed/zhaoming5/400/225" alt="赵铭紧张动图示意" loading="lazy">
+                    </div>
+                    <div class="gif-info">
+                        <div>
+                            <h3 class="gif-title">紧张找茬动作</h3>
+                            <p class="gif-meta">来源：疯狂的石头</p>
+                        </div>
+                        <div class="gif-meta">
+                            <span class="tag">高燃</span>
+                            <span>9.1k</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 6 -->
+                <article class="gif-card" data-category="character">
+                    <div class="gif-wrapper">
+                        <img src="https://picsum.photos/seed/zhaoming6/400/225" alt="赵铭硬汉形象动图" loading="lazy">
+                    </div>
+                    <div class="gif-info">
+                        <div>
+                            <h3 class="gif-title">硬汉假警察形象</h3>
+                            <p class="gif-meta">角色：假警察</p>
+                        </div>
+                        <div class="gif-meta">
+                            <span class="tag">形象</span>
+                            <span>6.5k</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section style="margin-top: 60px; margin-bottom: 60px;">
+            <h2 class="section-title">常见问题</h2>
+            <div style="background: white; padding: 24px; border-radius: 12px;">
+                <details style="margin-bottom: 16px; border-bottom: 1px solid #eee; padding-bottom: 16px;">
+                    <summary style="cursor: pointer; font-weight: 600;">赵铭是谁？</summary>
+                    <p style="margin-top: 8px; color: var(--text-sub);">赵铭是中国内地男演员，因在宁浩导演的电影《疯狂的石头》中饰演“黑皮”假警察一角而广为人知，其表演风格夸张且具有极高的辨识度。</p>
+                </details>
+                <details style="margin-bottom: 16px; border-bottom: 1px solid #eee; padding-bottom: 16px;">
+                    <summary style="cursor: pointer; font-weight: 600;">这些动图哪里来的？</summary>
+                    <p style="margin-top: 8px; color: var(--text-sub);">本站收录的动图均来源于《疯狂的石头》、《人在囧途》等影视作品的官方高清素材，经过剪辑处理而成，仅供个人娱乐和交流使用。</p>
+                </details>
+                <details>
+                    <summary style="cursor: pointer; font-weight: 600;">如何下载这些GIF？</summary>
+                    <p style="margin-top: 8px; color: var(--text-sub);">您可以长按动图保存到本地，或者使用截图工具截取特定帧。目前网站暂不支持直接批量下载。</p>
+                </details>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">关于我们</a>
+                <a href="#">版权声明</a>
+                <a href="#">联系合作</a>
+                <a href="#">免责声明</a>
+            </div>
+            <p>&copy; 2023 赵铭动图网 - 影视GIF分享平台</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple Filtering Logic
+        function filterGallery(category) {
+            const cards = document.querySelectorAll('.gif-card');
+            const tabs = document.querySelectorAll('.tab');
+            
+            // Update active tab style
+            tabs.forEach(tab => tab.classList.remove('active'));
+            // Find the tab that was clicked (simplified logic based on order)
+            const indexMap = { 'all': 0, 'meme': 1, 'classic': 2, 'character': 3 };
+            if(tabs[indexMap[category]]) {
+                tabs[indexMap[category]].classList.add('active');
+            }
+
+            // Filter cards
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                    // Add a small fade-in animation
+                    card.style.opacity = '0';
+                    setTimeout(() => card.style.opacity = '1', 50);
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
