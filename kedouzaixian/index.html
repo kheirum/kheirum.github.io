@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="蝌蚪在线提供最新、最全的男女免费视频内容，涵盖动漫、影视、纪录片等多种类型，高清画质，在线观看无广告干扰。">
+    <meta name="keywords" content="蝌蚪在线男女免费看新视频,免费视频,在线观看,高清动漫,影视资源">
+    <title>蝌蚪在线男女免费看新视频 - 最新高清影视与动漫资源库</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #00bcd4;
+            --secondary-color: #0097a7;
+            --bg-color: #f5f7fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: var(--bg-color);
+            border-radius: 20px;
+            padding: 5px 15px;
+        }
+
+        .search-box input {
+            border: none;
+            background: transparent;
+            outline: none;
+            padding: 5px;
+            font-size: 0.9rem;
+            width: 200px;
+        }
+
+        .search-box button {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .hero-tags {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255,255,255,0.2);
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .tag:hover {
+            background: rgba(255,255,255,0.4);
+        }
+
+        /* Main Content */
+        main {
+            max-width: var(--container-width);
+            margin: 40px auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .section-more {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Grid Layout */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .video-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .thumbnail-wrapper {
+            position: relative;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            background-color: #eee;
+        }
+
+        .thumbnail-wrapper img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .duration {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .category-badge {
+            background-color: #e0f7fa;
+            color: var(--secondary-color);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        /* Banner Section */
+        .banner-section {
+            background: linear-gradient(to right, #e0f2f1, #ffffff);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 50px;
+            text-align: center;
+            border: 1px solid #b2dfdb;
+        }
+
+        .banner-section h2 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Features/Why Us */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .feature-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #263238;
+            color: #b0bec5;
+            padding: 50px 0 20px;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #37474f;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px;
+                gap: 15px;
+            }
+            
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+            
+            .search-box input {
+                width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">蝌蚪<span>在线</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">最新更新</a></li>
+                    <li><a href="#">动漫专区</a></li>
+                    <li><a href="#">电视剧集</a></li>
+                    <li><a href="#">排行榜</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索视频内容...">
+                <button>🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>蝌蚪在线男女免费看新视频</h1>
+        <p>海量高清影视资源，实时更新，随时随地畅享视听盛宴。</p>
+        <div class="hero-tags">
+            <span class="tag">国产动漫</span>
+            <span class="tag">热门剧集</span>
+            <span class="tag">4K高清</span>
+            <span class="tag">无广告</span>
+        </div>
+    </section>
+
+    <main>
+        <!-- Why Choose Us -->
+        <section class="features">
+            <article class="feature-item">
+                <div class="feature-icon">⚡</div>
+                <h3 class="feature-title">极速播放</h3>
+                <p class="text-light">智能线路切换，秒开不卡顿，优化加载速度。</p>
+            </article>
+            <article class="feature-item">
+                <div class="feature-icon">💎</div>
+                <h3 class="feature-title">高清画质</h3>
+                <p class="text-light">支持多种分辨率选择，提供最佳视觉体验。</p>
+            </article>
+            <article class="feature-item">
+                <div class="feature-icon">🛡️</div>
+                <h3 class="feature-title">安全纯净</h3>
+                <p class="text-light">无病毒无插件，绿色安全，保护用户隐私。</p>
+            </article>
+        </section>
+
+        <!-- Latest Updates -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">最新更新</h2>
+                <a href="#" class="section-more">查看更多 &gt;</a>
+            </div>
+            <div class="video-grid">
+                <!-- Video Card 1 -->
+                <article class="video-card">
+                    <div class="thumbnail-wrapper">
+                        <img src="https://picsum.photos/seed/anim1/400/225" alt="最新动漫封面">
+                        <span class="duration">24:30</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">奇幻冒险：勇者归来第一季第24集</h3>
+                        <div class="card-meta">
+                            <span class="category-badge">动漫</span>
+                            <span>更新至24集</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Video Card 2 -->
+                <article class="video-card">
+                    <div class="thumbnail-wrapper">
+                        <img src="https://picsum.photos/seed/drama1/400/225" alt="热门剧集封面">
+                        <span class="duration">45:12</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">都市情感：时光里的我们 第8集</h3>
+                        <div class="card-meta">
+                            <span class="category-badge">电视剧</span>
+                            <span>今日更新</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Video Card 3 -->
+                <article class="video-card">
+                    <div class="thumbnail-wrapper">
+                        <img src="https://picsum.photos/seed/doc1/400/225" alt="纪录片封面">
+                        <span class="duration">58:00</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">自然探索：深海的秘密</h3>
+                        <div class="card-meta">
+                            <span class="category-badge">纪录片</span>
+                            <span>高清</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Video Card 4 -->
+                <article class="video-card">
+                    <div class="thumbnail-wrapper">
+                        <img src="https://picsum.photos/seed/anim2/400/225" alt="最新动漫封面">
+                        <span class="duration">22:15</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">热血少年：破晓之战 第12集</h3>
+                        <div class="card-meta">
+                            <span class="category-badge">动漫</span>
+                            <span>热映中</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Hot Recommendation Banner -->
+        <section class="banner-section">
+            <h2>热门推荐专区</h2>
+            <p>精选男女通看的优质内容，满足不同口味的观看需求。</p>
+            <a href="#" class="btn">立即观看</a>
+        </section>
+
+        <!-- Popular Categories -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">分类浏览</h2>
+            </div>
+            <div class="video-grid">
+                <article class="video-card">
+                    <div class="thumbnail-wrapper">
+                        <img src="https://picsum.photos/seed/cat1/400/225" alt="动画电影">
+                        <span class="duration">HD</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">动画电影精选</h3>
+                        <div class="card-meta">
+                            <span>8K超清</span>
+                            <span>1080部</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="video-card">
+                    <div class="thumbnail-wrapper">
+                        <img src="https://picsum.photos/seed/cat2/400/225" alt="欧美剧集">
+                        <span class="duration">HD</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">欧美热播剧集</h3>
+                        <div class="card-meta">
+                            <span>双语字幕</span>
+                            <span>同步更新</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="video-card">
+                    <div class="thumbnail-wrapper">
+                        <img src="https://picsum.photos/seed/cat3/400/225" alt="日韩综艺">
+                        <span class="duration">HD</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">日韩综艺娱乐</h3>
+                        <div class="card-meta">
+                            <span>独家引进</span>
+                            <span>最新一期</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="video-card">
+                    <div class="thumbnail-wrapper">
+                        <img src="https://picsum.photos/seed/cat4/400/225" alt="国产剧集">
+                        <span class="duration">HD</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">国产高分剧集</h3>
+                        <div class="card-meta">
+                            <span>口碑佳作</span>
+                            <span>持续收录</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section style="margin-top: 60px; background: #fff; padding: 30px; border-radius: 12px;">
+            <div class="section-header">
+                <h2 class="section-title">常见问题 (FAQ)</h2>
+            </div>
+            <div style="display: grid; gap: 20px;">
+                <details style="padding: 15px; border-bottom: 1px solid #eee; cursor: pointer;">
+                    <summary style="font-weight: 600; color: var(--text-main);">如何开始观看蝌蚪在线的视频？</summary>
+                    <p style="margin-top: 10px; color: var(--text-light);">无需注册，点击任意视频封面即可直接播放。建议使用Chrome或Edge浏览器以获得最佳体验。</p>
+                </details>
+                <details style="padding: 15px; border-bottom: 1px solid #eee; cursor: pointer;">
+                    <summary style="font-weight: 600; color: var(--text-main);">视频播放卡顿怎么办？</summary>
+                    <p style="margin-top: 10px; color: var(--text-light);">您可以尝试切换播放源或调整清晰度设置。如果问题依旧，请检查您的网络连接。</p>
+                </details>
+                <details style="padding: 15px; border-bottom: 1px solid #eee; cursor: pointer;">
+                    <summary style="font-weight: 600; color: var(--text-main);">网站是否支持移动端访问？</summary>
+                    <p style="margin-top: 10px; color: var(--text-light);">是的，蝌蚪在线完美适配手机、平板和电脑端，随时随地都能观看您喜欢的视频。</p>
+                </details>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>关于蝌蚪在线</h3>
+                <p style="font-size: 0.9rem; line-height: 1.8;">我们致力于提供最优质的免费视频资源，打造用户最喜爱的在线观看平台。坚持绿色运营，保护版权。</p>
+            </div>
+            <div class="footer-col">
+                <h3>快速链接</h3>
+                <ul>
+                    <li><a href="#">网站地图</a></li>
+                    <li><a href="#">免责声明</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">联系客服</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>热门标签</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    <span style="background: rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;">免费观看</span>
+                    <span style="background: rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;">高清动漫</span>
+                    <span style="background: rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;">最新剧集</span>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 蝌蚪在线 版权所有. 本站仅提供资源索引服务，所有内容均来自互联网。</p>
+        </div>
+    </footer>
+
+</body>
+  </html>
